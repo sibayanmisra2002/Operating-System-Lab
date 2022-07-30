@@ -5,7 +5,7 @@ i) Create 2 files:
 
 Touch command to create multiple files: Touch command can be used to create the multiple numbers of files at the same time. These files would be empty while creation.
 
-Syntax: touch File1_name File2_name File3_name 
+Syntax: touch File1_name File2_name
 
 ii) Display the contents of both the files
 
