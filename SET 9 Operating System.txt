@@ -1,0 +1,93 @@
+SET 9
+
+a. i) Create a file
+
+cat > newfilename (Create and edit new file)
+
+a. ii) Display line numbers of a file
+
+wc -l filename
+
+a. iii) Display file content with line number
+
+nl filename 
+
+a. iv) Update the file content with I/O redirection
+
+The simplest case to demonstrate this is basic output redirection. The output redirection operator is the > (greater than) symbol, and the general syntax looks as follows:
+
+	$ command > output_file_spec
+
+The ability also exists to redirect the standard input using the input redirection operator, the < (less than) symbol. Note the point of the operator implies the direction. The general syntax of input redirection looks as follows:
+
+	$ command < input_file_spec
+
+a. v) Rename the file
+
+To change the name of a file, use the following command format (where thirdfile and file3 are sample file names):
+
+$ mv thirdfile file3
+
+b. Shell script to calculate salary 
+
+Salary = basic + dp + da + hra + ma – pf
+
+basic – to be taken as input
+
+dp - 50 % of basic
+da - 35 % of (basic + dp)
+hra - 8 % of (basic + dp)
+ma - 3 % of (basic + dp)
+
+pf - 10% of (basic + dp)
+
+
+Answer :
+
+#! /bin/bash
+
+echo -e "Enter the value of Basic Salary: \c"
+read basic_sal
+if [ $basic_sal -ge 0 ]
+then
+  basic=$(expr 1.0*"$basic_sal" | bc)
+  dp=$(expr 0.5*"$basic"| bc)
+  temp=$(expr "$basic"+"$dp" | bc)
+  da=$(expr 0.35*"$temp" | bc)
+  hra=$(expr 0.08*"$temp" | bc)
+  ma=$(expr 0.03*"$temp" | bc)
+  pf=$(expr 0.1*"$temp" | bc)
+  salary=$(expr "$basic"+"$dp"+"$da"+"$hra"+"$ma"-" $pf" | bc)
+ 
+  echo "Your Basic Salary: $basic "
+  echo "Your DP:  $dp "
+  echo "Your DA:            $da"
+  echo "Your HRA:   $hra"
+  echo "Your MA:   $ma"
+  echo "Your PF:   $pf"
+  echo "                     ------------"
+  echo "Your Net Salary is  Rs. $salary "
+else
+  echo "Please enter a valid Basic Salary "
+fi 
+
+c. Shell script to read 3 numbers and find the greatest
+
+#!/bin/bash
+
+echo "Enter Num1"
+read num1
+echo "Enter Num2"
+read num2
+echo "Enter Num3"
+read num3
+
+if [ $num1 -gt $num2 ] && [ $num1 -gt $num3 ]
+then
+    echo $num1
+elif [ $num2 -gt $num1 ] && [ $num2 -gt $num3 ]
+then
+    echo $num2
+else
+    echo $num3
+fi
