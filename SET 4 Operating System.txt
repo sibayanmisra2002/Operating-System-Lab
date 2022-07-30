@@ -1,0 +1,101 @@
+SET 4
+a.
+
+i) Create 2 files:
+
+Touch command to create multiple files: Touch command can be used to create the multiple numbers of files at the same time. These files would be empty while creation.
+
+Syntax: touch File1_name File2_name File3_name 
+
+ii) Display the contents of both the files
+
+Syntax: cat myFile.txt
+
+iii) Count the number of charecters in both the files
+
+Syntax: wc OPTION... [FILE]...
+wc /proc/cpuinfo 
+
+The output will look something like the following:
+448 3632 22226 /proc/cpuinfo
+
+448 is the number of lines.
+3632 is the number of words.
+22226 is the number of characters.
+ 
+iv) Rename two files
+
+mv prev_name.txt new_name.txt
+
+v) Combine the 2 files without duplicate
+
+grep -v -f file1 fil2
+
+b. 
+
+echo enter n
+read n
+num=0
+while [ $n -gt 0 ]
+do
+num=$(expr $num \* 10)
+k=$(expr $n % 10)
+num=$(expr $num + $k)
+n=$(expr $n / 10)
+done
+echo number is $num
+
+Output:
+$ enter n
+$ 456
+$ number is 654
+
+d.
+
+#!/bin/bash
+echo "enter maximum number"
+read n
+# taking input from user
+echo "enter  Numbers in array:"
+for (( i = 0; i < $n; i++ ))
+do
+read nos[$i]
+done
+
+# Now do the Sorting of numbers
+for (( i = 0; i < $n ; i++ ))
+do
+for (( j = $i; j < $n; j++ ))
+do
+if [ ${nos[$i]} -lt ${nos[$j]}  ]; then
+t=${nos[$i]}
+nos[$i]=${nos[$j]}
+nos[$j]=$t
+fi
+done
+done
+# Printing the sorted number in descending order
+echo -e "\nSorted Numbers "
+for (( i=0; i < $n; i++ ))
+do
+echo ${nos[$i]}
+done
+
+Output:
+enter maximum number
+6
+Enter numbers in array:
+4
+9
+1
+2
+3
+7
+
+Sorted Numbers
+9
+7
+4
+3
+2
+1
