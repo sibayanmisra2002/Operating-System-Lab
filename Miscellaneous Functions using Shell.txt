@@ -1,0 +1,143 @@
+Qs. delete the lines containing the word unix in the files supplied as arguments to this
+
+if test $# -eq 0
+then
+echo "please give filenames"
+exit
+fi
+for var in $*
+do
+grep -v "UNIX"$var>ff
+cp ff $var
+done
+
+Qs. disp list of all files in current directory having read write execute permisions
+
+# Shell script to display list of file names
+# having read, Write and Execute permission
+
+echo "The name of all files having all permissions :"
+  
+# loop through all files in current directory
+for file in *
+do
+
+# check if it is a file
+if [ -f $file ]
+then
+
+# check if it has all permissions
+if [ -r $file -a -w $file -a -x $file ]
+then
+
+# print the complete file name with -l option
+ls -l $file
+
+# closing second if statement
+fi
+
+# closing first if statement
+fi
+
+Qs. display all files with all attributes those have been created or modified in the month of november
+
+for var
+  in *
+  do
+    set-- 'ls -l $var' if test
+      "$6" = "Nov" then ls - l $var fi
+
+Qs. display files created or updated within 14 days from current data
+
+find -atime -14 -mtime -14|sort -u
+
+Qs. list files according to modification of access time depending on the arguments in command line
+
+case $1 in
+lm) ls-lt;;
+la) ls-lut;;
+*) ls-l;;
+es ae
+
+Qs. print the name of all files in a directory whose size exceeds 100 bytes alongwith total number of such files
+
+if test $# -ne 1
+
+ then 
+
+echo “Please give a directory name and try again” 
+
+exit 
+
+fi 
+
+cd $1 find -size +100b | sort –nr 
+
+echo “Total number of such files:” 
+
+find -size +100b | grep -c “.*” 
+
+#end of script 
+
+Qs. Receive a list of file names
+
+if [$# -eq 0]
+then
+echo " no arguments "
+else
+tr """
+"<$1> temp
+shift
+for i in $ *
+do
+tr """
+"<$i> temp1
+y=ur-l<temp'
+j=1
+while [$j-le$y]
+do
+x='head -n $j temp1
+tail-1'
+c='grep-c"$x" temp1
+echo $x $c
+j='expr $j1'
+done
+fi
+
+Qs. Script which would recieve a log  name during execution ,
+obtain information about if from password file and display
+this info on the screen in easily understandable format
+
+if [$# -eq0]
+then
+echo "no arguments"
+else
+who amr
+fi
+
+Qs. To compare two files and delete the second file if they are equal.
+
+if test $# -ne 2 
+
+then 
+
+echo “Please give two filenames.” 
+exit
+
+ fi 
+
+cmp -s $1 $2 
+
+if test $? -eq 0
+ then echo “$1 and $2 are same”
+ rm $2 
+else 
+echo “$1 and $2 are not same” 
+fi 
+
+Qs. To list the files starting with a vowel.
+
+echo “Required files are:”
+
+ ls | grep “^[aeiou]”
+

@@ -1,0 +1,70 @@
+Write a shell program that takes a number from user and prints the reverse of the number.
+
+echo enter n
+read n
+num=0
+while [ $n -gt 0 ]
+do
+num=$(expr $num \* 10)
+k=$(expr $n % 10)
+num=$(expr $num + $k)
+n=$(expr $n / 10)
+done
+echo number is $num
+
+Write a shell script to find whether a number is divisible by 11.
+
+#!/bin/sh
+echo "Enter the divident"
+
+read n
+
+echo "Enter the divisor"
+
+read m
+
+y=`expr $n % $m`
+
+if [ $y -eq 0 ]
+
+then
+
+echo " $n is divisible by $m "
+
+else
+
+echo " $n not divisible by $m "
+
+fi
+
+Write a shell script that produces a shell calculator to perform the following operations: • Addition • Subtraction • Multiplication • Division 
+
+# !/bin/bash
+
+# Take user Input
+echo "Enter Two numbers : "
+read a
+read b
+
+# Input type of operation
+echo "Enter Choice :"
+echo "1. Addition"
+echo "2. Subtraction"
+echo "3. Multiplication"
+echo "4. Division"
+read ch
+
+# Switch Case to perform
+# calculator operations
+case $ch in
+1)res=`echo $a + $b | bc`
+;;
+2)res=`echo $a - $b | bc`
+;;
+3)res=`echo $a \* $b | bc`
+;;
+4)res=`echo "scale=2; $a / $b" | bc`
+;;
+esac
+echo "Result : $res"
+
