@@ -49,7 +49,8 @@ Write a shell script to test whether a given string is palindrome or not.
 echo "Input the string without space"
 read str
 
-for i in $(seq 0 ${#str}) ; do
+for i in $(seq 0 ${#str})
+do
         revstr=${str:$i:1}$revstr
 done
 
