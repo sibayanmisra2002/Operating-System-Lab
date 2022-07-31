@@ -8,6 +8,7 @@ cd or cd ~	Navigate to HOME directory
 cd ..	Move one level up
 cd	To change to a particular directory
 cd /	Move to the root directory
+touch filename
 cat > filename	Creates a new file
 cat filename	Displays the file content
 cat file1 file2 > file3	Joins two files (file1, file2) and stores the output in a new file (file3)
